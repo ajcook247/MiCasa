@@ -1,0 +1,17 @@
+.button{
+    -fx-font-weight: bold;
+    -fx-background-radius: 100;
+}
+
+#close:hover{
+    transition: all 2s ease-in;
+    -fx-background-color: red;
+}
+
+#max:hover{
+    -fx-background-color: green;
+}
+
+#min:hover{
+    -fx-background-color: yellow;
+}

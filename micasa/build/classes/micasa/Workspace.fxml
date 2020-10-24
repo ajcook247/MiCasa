@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #E5989B;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="micasa.WorkspaceController">
+   <children>
+      <AnchorPane fx:id="toolbar" prefHeight="41.0" prefWidth="800.0" style="-fx-background-color: #B5838D;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="close" layoutX="734.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClose" stylesheets="@ButtonStyle.css" text="X" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
+            <Button fx:id="max" layoutX="666.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleMax" stylesheets="@ButtonStyle.css" text="+" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="8.0" />
+            <Button fx:id="min" layoutX="594.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleMin" stylesheets="@ButtonStyle.css" text="-" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="8.0" />
+         </children>
+      </AnchorPane>
+      <SplitPane fx:id="sp" dividerPositions="0.24185463659147868" layoutY="38.0" prefHeight="565.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0">
+        <items>
+          <AnchorPane fx:id="left" minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="167.0">
+               <children>
+                  <Button fx:id="newPoint" layoutX="55.0" layoutY="59.0" mnemonicParsing="false" onAction="#newPoint" text="NEW POINT" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="55.0">
+                     <tooltip>
+                        <Tooltip text="Create a new point" />
+                     </tooltip></Button>
+                  <Button fx:id="clearAll" layoutX="55.0" layoutY="159.0" mnemonicParsing="false" onAction="#clearAll" text="CLEAR ALL" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="220.0">
+                     <tooltip>
+                        <Tooltip text="Clears the workspace" />
+                     </tooltip>
+                  </Button>
+                  <Circle fill="#1a1423" layoutX="34.0" layoutY="519.0" onMousePressed="#help" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="14.0" />
+                  <Label layoutX="25.0" layoutY="490.0" onMousePressed="#help" text="?" textFill="WHITE" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="25.0">
+                     <font>
+                        <Font name="System Bold" size="41.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip autoFix="false" text="Tutorial" />
+                     </tooltip>
+                  </Label>
+                  <Button fx:id="save" layoutX="106.0" layoutY="507.0" mnemonicParsing="false" onAction="#saveImage" text="SAVE PLAN" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0">
+                     <tooltip>
+                        <Tooltip text="Saves the current floorplan" />
+                     </tooltip></Button>
+                  <Text fx:id="sqfeet" layoutX="73.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="274.0390625" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="270.0" />
+                  <Text fx:id="sqmeters" layoutX="64.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="243.98828125" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="300.05078125" />
+                  <Button layoutX="69.0" layoutY="387.0" mnemonicParsing="false" onAction="#getArea" text="AREA" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                     <tooltip>
+                        <Tooltip text="Calculate the area of the current floorplan" />
+                     </tooltip></Button>
+                  <ComboBox fx:id="cb" layoutX="20.0" layoutY="125.0" prefWidth="150.0" promptText="Choose an item" visibleRowCount="5" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                     <tooltip>
+                        <Tooltip text="Select a furniture object" />
+                     </tooltip></ComboBox>
+                  <Button fx:id="addIn" layoutX="42.0" layoutY="172.0" mnemonicParsing="false" onAction="#addFurn" text="Add in furniture" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
+                     <tooltip>
+                        <Tooltip text="Add in the selected piece of furniture" />
+                     </tooltip></Button>
+               </children></AnchorPane>
+          <AnchorPane fx:id="right" minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="572.0">
+               <children>
+                  <GridPane fx:id="grid" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" opacity="0.4" prefHeight="560.0" prefWidth="602.0" scaleShape="false" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </GridPane>
+                  <TextField fx:id="tf" alignment="BASELINE_CENTER" prefHeight="48.0" prefWidth="230.0" promptText="Enter Title" text="" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Enter the title of your floorplan" />
+                     </tooltip>
+                  </TextField>
+                  <TilePane fx:id="tp" hgap="92.0" opacity="0.6" prefColumns="26" prefHeight="560.0" prefRows="22" prefTileHeight="0.0" prefTileWidth="0.0" prefWidth="602.0" style="-fx-background-color: lightgreen;" vgap="86.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
